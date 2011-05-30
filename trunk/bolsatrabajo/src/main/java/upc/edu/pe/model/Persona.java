@@ -1,5 +1,7 @@
 package upc.edu.pe.model;
 
+import java.util.Date;
+
 public class Persona {
 
 	private String correo;
@@ -10,7 +12,63 @@ public class Persona {
 	private String numeroDocumento;
 	private String telefono;
 	private String celular;
+	private Double salario;
 	private String tipoPersona;
+	private String disponibilidad;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
+	private Date fechaNacimiento;
+	private String resumen;
+	private String titulo;
+	private Distrito distrito;
+	
+	public Distrito getDistrito() {
+		return distrito;
+	}
+
+
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
+	}
+
+
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+
+
+	public Double getSalario() {
+		return salario;
+	}
+
+
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -20,6 +78,59 @@ public class Persona {
 				+ numeroDocumento + ", telefono=" + telefono + ", celular="
 				+ celular + ", tipoPersona=" + tipoPersona + "]";
 	}
+
+	
+	
+	public String getDisponibilidad() {
+		return disponibilidad;
+	}
+
+
+
+	public void setDisponibilidad(String disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+
+
+
+	public String getApellidoPaterno() {
+		return apellidoPaterno;
+	}
+
+
+
+	public void setApellidoPaterno(String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
+	}
+
+
+
+	public String getApellidoMaterno() {
+		return apellidoMaterno;
+	}
+
+
+
+	public void setApellidoMaterno(String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
+	}
+
+
+
+
+
+
+	public String getResumen() {
+		return resumen;
+	}
+
+
+
+	public void setResumen(String resumen) {
+		this.resumen = resumen;
+	}
+
+
 
 	public String getDireccion() {
 		return direccion;
