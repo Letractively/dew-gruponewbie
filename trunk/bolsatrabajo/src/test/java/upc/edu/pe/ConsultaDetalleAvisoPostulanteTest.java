@@ -2,14 +2,14 @@ package upc.edu.pe;
 
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import upc.edu.pe.dao.consulta.ConsultaDetalleAvisoPostulante;
-import upc.edu.pe.dao.consulta.ConsultaEstadisticaAvisoDao;
+import upc.edu.pe.dao.consulta.ConsultaDetalleAvisoPostulanteDao;
 import upc.edu.pe.exception.DAOExcepcion;
 import upc.edu.pe.model.Aviso;
 import upc.edu.pe.model.DetalleAvisoPostulante;
@@ -22,7 +22,7 @@ public class ConsultaDetalleAvisoPostulanteTest {
 		System.out.println("Se carga e método estadisticaPostulantesAvisoTest()");
 
 		System.out.println("=================================================estadisticaPostulantesAvisoTest");
-		ConsultaDetalleAvisoPostulante cdap = new ConsultaDetalleAvisoPostulante();
+		ConsultaDetalleAvisoPostulanteDao cdap = new ConsultaDetalleAvisoPostulanteDao();
 		try {
 			DetalleAvisoPostulante dap = new DetalleAvisoPostulante();
 			Aviso aviso = new Aviso();
@@ -30,8 +30,8 @@ public class ConsultaDetalleAvisoPostulanteTest {
 			dap.setId_avi(1);
 			dap.setAviso(aviso);
 			persona.setDisponibilidad("tiempo completo");
-			persona.setSalario(5000.0);
-			persona.setEdadPersona(35);
+			persona.setSalario(new BigDecimal(5000.0));
+			//persona.setEdad(35);
 			dap.setPersona(persona);			
 			
 			List<DetalleAvisoPostulante> lista = cdap.buscarPostulantesAviso(dap);		

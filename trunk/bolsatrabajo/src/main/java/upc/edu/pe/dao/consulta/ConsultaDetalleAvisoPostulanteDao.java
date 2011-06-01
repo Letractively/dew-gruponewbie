@@ -39,8 +39,8 @@ public class ConsultaDetalleAvisoPostulanteDao extends BaseDAO {
 							" inner join tb_tipodocumento d"+ 
 							" on b.id_tipdoc=d.id_tipdoc");
 			sb.append(" where id_avi=?");
-			if(dap.getPersona().getDisponibilidad()!=null)
-				sb.append(" and disponibilidad_per=?");
+			/*if(dap.getPersona().getDisponibilidad()!=null)
+				sb.append(" and disponibilidad_per=?");*/
 
 			stmt = con.prepareStatement(sb.toString());
 			stmt.setInt(1, dap.getId_avi());
