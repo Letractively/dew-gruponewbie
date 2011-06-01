@@ -18,6 +18,14 @@ public class Aviso {
 	private String estado;
 	private int contadorVisitas;
 	private Especialidad especialidad;
+	private int totalPostulantes;
+	
+	public int getTotalPostulantes() {
+		return totalPostulantes;
+	}
+	public void setTotalPostulantes(int totalPostulantes) {
+		this.totalPostulantes = totalPostulantes;
+	}
 	public int getId() {
 		return id;
 	}
