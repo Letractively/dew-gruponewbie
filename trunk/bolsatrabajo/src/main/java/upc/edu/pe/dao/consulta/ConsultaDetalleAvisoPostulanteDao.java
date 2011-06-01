@@ -14,7 +14,7 @@ import upc.edu.pe.model.Distrito;
 import upc.edu.pe.model.Persona;
 import upc.edu.pe.util.ConexionBD;
 
-public class ConsultaDetalleAvisoPostulante extends BaseDAO {
+public class ConsultaDetalleAvisoPostulanteDao extends BaseDAO {
 
 	public List<DetalleAvisoPostulante> buscarPostulantesAviso(DetalleAvisoPostulante dap) throws DAOExcepcion {
 		System.out.println("ConsultaDetalleAvisoPostulante: buscarPostulantesAviso()");
@@ -53,7 +53,7 @@ public class ConsultaDetalleAvisoPostulante extends BaseDAO {
 				r_persona.setTitulo(rs.getString("titulo_per"));
 				r_persona.setResumen(rs.getString("resumen_per"));
 				r_persona.setDisponibilidad(rs.getString("disponibilidad_per"));
-				r_persona.setSalario(rs.getDouble("salario_per"));
+				r_persona.setSalario(rs.getBigDecimal("salario_per"));
 				r_persona.setApellidoPaterno(rs.getString("apellidoPaterno_per"));
 				r_persona.setApellidoMaterno(rs.getString("apellidoMaterno_per"));
 				r_persona.setCorreo(rs.getString("descripcion_tipdoc"));

@@ -39,7 +39,7 @@ public class RegistroAvisoTest {
 		RegistroAvisoDao registroAvisoDao = new RegistroAvisoDao(); 
 		boolean flagRegistro;
 		try {
-			flagRegistro = registroAvisoDao.registrarAvisoo(aviso, 1);
+			flagRegistro = registroAvisoDao.registrarAviso(aviso, 1);
 			//Validar
 			assertTrue(flagRegistro);
 			System.out.println("Se registró el aviso correctamente:");

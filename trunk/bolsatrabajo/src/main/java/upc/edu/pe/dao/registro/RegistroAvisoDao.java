@@ -12,7 +12,7 @@ import upc.edu.pe.util.ConexionBD;
 
 public class RegistroAvisoDao extends BaseDAO {
 //SELECT id_avi, cargo_avi, inicio_avi, fin_avi, descripcion_avi, jornadaLaboral_avi, disponibilidad_avi, requerimientos_avi, beneficios_avi, sueldo_avi, estado_avi, conteoLectura_avi, id_per, id_Especialidad FROM tb_aviso'
-	public boolean registrarAvisoo(Aviso aviso, int idUsuario) throws DAOExcepcion {
+	public boolean registrarAviso(Aviso aviso, int idUsuario) throws DAOExcepcion {
 		boolean flagRpta=true;
 		String query = "INSERT INTO tb_aviso(cargo_avi, inicio_avi, fin_avi, descripcion_avi, jornadaLaboral_avi, disponibilidad_avi, requerimientos_avi, beneficios_avi, sueldo_avi, estado_avi, conteoLectura_avi, id_per, id_Especialidad) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		Connection con = null;

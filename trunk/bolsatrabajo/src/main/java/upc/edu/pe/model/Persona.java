@@ -1,5 +1,6 @@
 package upc.edu.pe.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Persona {
@@ -12,7 +13,7 @@ public class Persona {
 	private String numeroDocumento;
 	private String telefono;
 	private String celular;
-	private Double salario;
+	private BigDecimal salario;
 	private String tipoPersona;
 	private String disponibilidad;
 	private String apellidoPaterno;
@@ -58,13 +59,13 @@ public class Persona {
 
 
 
-	public Double getSalario() {
+	public BigDecimal getSalario() {
 		return salario;
 	}
 
 
 
-	public void setSalario(Double salario) {
+	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
 	}
 
