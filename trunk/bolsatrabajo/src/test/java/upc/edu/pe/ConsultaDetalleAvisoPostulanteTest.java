@@ -31,10 +31,10 @@ public class ConsultaDetalleAvisoPostulanteTest {
 			dap.setAviso(aviso);
 			persona.setDisponibilidad("tiempo completo");
 			persona.setSalario(new BigDecimal(5000.0));
-			//persona.setEdad(35);
-			dap.setPersona(persona);			
+			dap.setPersona(persona);
+			int edad = 35;
 			
-			List<DetalleAvisoPostulante> lista = cdap.buscarPostulantesAviso(dap);		
+			List<DetalleAvisoPostulante> lista = cdap.buscarPostulantesAviso(dap,edad);		
 			assertTrue(lista.size()>=1);
 			System.out.println("Existen "+ lista.size()+" registros");
 			for(int i=0; i<lista.size(); i++) {

@@ -16,7 +16,7 @@ import upc.edu.pe.util.ConexionBD;
 
 public class ConsultaDetalleAvisoPostulanteDao extends BaseDAO {
 
-	public List<DetalleAvisoPostulante> buscarPostulantesAviso(DetalleAvisoPostulante dap) throws DAOExcepcion {
+	public List<DetalleAvisoPostulante> buscarPostulantesAviso(DetalleAvisoPostulante dap, int edad) throws DAOExcepcion {
 		System.out.println("ConsultaDetalleAvisoPostulante: buscarPostulantesAviso()");
 		List<DetalleAvisoPostulante> lista = new ArrayList<DetalleAvisoPostulante>();
 		Connection con = null;
@@ -25,25 +25,38 @@ public class ConsultaDetalleAvisoPostulanteDao extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			StringBuffer sb = new StringBuffer(); 
-			sb.append("select email_per,titulo_per,"+
-							" resumen_per,disponibilidad_per,"+
-							" salario_per,apellidoPaterno_per,"+
-							" apellidoMaterno_per,direccion_per,"+
-							" descripcion_tipdoc,numeroDocumento_per,"+
-							" fechaNacimiento_per,telefono_per,"+
-							" celular_per,nombre_dis"+
-							" from tb_detalle_aviso_postulante a inner join tb_persona b"+
-							" on a.id_per=b.id_per"+
-							" inner join tb_distrito c"+
-							" on c.id_dis=b.id_dis"+ 
-							" inner join tb_tipodocumento d"+ 
-							" on b.id_tipdoc=d.id_tipdoc");
-			sb.append(" where id_avi=?");
-			/*if(dap.getPersona().getDisponibilidad()!=null)
-				sb.append(" and disponibilidad_per=?");*/
+			sb.append("select a.id_avi,email_per,titulo_per, resumen_per,disponibilidad_per, salario_per,apellidoPaterno_per, apellidoMaterno_per,direccion_per, descripcion_tipdoc,numeroDocumento_per, fechaNacimiento_per,telefono_per, celular_per,nombre_dis ");
+			sb.append("from tb_detalle_aviso_postulante a inner join tb_persona b on a.id_per=b.id_per inner join tb_distrito c on c.id_dis=b.id_dis inner join tb_tipodocumento d on b.id_tipdoc=d.id_tipdoc ");
+			sb.append("where a.id_avi=? ");
+			
+			//validacion de criterios
+			if(dap.getPersona().getDisponibilidad()!=null){
+				sb.append("and disponibilidad_per=? ");
+			}
+            	
+			if(dap.getPersona().getSalario()!=null){
+				sb.append("and salario_per<? ");
+			}
+			if(edad>0){
+				sb.append("and (YEAR(CURDATE())-YEAR(fechaNacimiento_per)) < ?");
+			}
 
+			//asignacion de criterios
+			int acum=1;
 			stmt = con.prepareStatement(sb.toString());
 			stmt.setInt(1, dap.getId_avi());
+			if(dap.getPersona().getDisponibilidad()!=null){
+				acum+=1;
+				stmt.setString(acum, dap.getPersona().getDisponibilidad());
+			}
+			if(dap.getPersona().getSalario()!=null){
+				acum+=1;
+				stmt.setBigDecimal(acum, dap.getPersona().getSalario());
+			}
+			if(edad>0){
+				acum+=1;
+				stmt.setInt(acum, edad);
+			}
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				DetalleAvisoPostulante r_dap = new DetalleAvisoPostulante();

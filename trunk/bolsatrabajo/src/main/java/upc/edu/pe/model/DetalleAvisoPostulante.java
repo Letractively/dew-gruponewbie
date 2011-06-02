@@ -38,5 +38,11 @@ public class DetalleAvisoPostulante {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
-	
+	@Override
+	public String toString() {
+		return "DetalleAvisoPostulante [id_avi=" + id_avi + ", id_per="
+				+ id_per + ", estado_avi=" + estado_avi + ", aviso=" + aviso
+				+ ", persona=" + persona + "]";
+	}
+
 }
