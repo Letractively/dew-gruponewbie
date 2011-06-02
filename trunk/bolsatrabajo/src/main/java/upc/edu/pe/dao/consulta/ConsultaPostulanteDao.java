@@ -10,15 +10,11 @@ import java.util.List;
 
 import upc.edu.pe.dao.BaseDAO;
 import upc.edu.pe.exception.DAOExcepcion;
-import upc.edu.pe.model.Aviso;
-import upc.edu.pe.model.Especialidad;
 import upc.edu.pe.model.ExperienciaProfesional;
 import upc.edu.pe.model.Industria;
 import upc.edu.pe.model.PerfilProfesional;
 import upc.edu.pe.model.Solicitante;
 import upc.edu.pe.util.ConexionBD;
-import upc.edu.pe.web.comun.Constantes;
-import upc.edu.pe.web.comun.HelperDate;
 
 public class ConsultaPostulanteDao extends BaseDAO{
 	

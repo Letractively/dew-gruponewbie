@@ -46,4 +46,69 @@ public class ConsultaEmpresaDao extends BaseDAO {
 		}
 		return lista;
 	}
+	
+	public List<Ofertante> buscarPorNombre(String nombreEmpresa) throws DAOExcepcion {
+		System.out.println("ConsultaEmpresaDao: buscarPorIndustria()");
+		List<Ofertante> lista = new ArrayList<Ofertante>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "SELECT id_per, email_per, resumen_per, nombreRazonSocial_per, direccion_per, telefono_per, celular_per, id_tipdoc, numeroDocumento_per FROM tb_persona where id_tipper = 2 and nombreRazonSocial_per LIKE ?";
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, "%"+nombreEmpresa);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Ofertante ofert = new Ofertante();
+				ofert.setId(rs.getInt("id_per"));
+				ofert.setCorreo(rs.getString("email_per"));
+				ofert.setRazonSocial(rs.getString("nombreRazonSocial_per"));
+				ofert.setDireccion(rs.getString("direccion_per"));
+				ofert.setTelefono(rs.getString("telefono_per"));
+				ofert.setTipoDocumento(rs.getString("id_tipdoc"));
+				ofert.setNumeroDocumento(rs.getString("numeroDocumento_per"));
+				lista.add(ofert);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return lista;
+	}
+	
+	public List<Ofertante> listadoGeneral() throws DAOExcepcion {
+		System.out.println("ConsultaEmpresaDao: listadoGeneral()");
+		List<Ofertante> lista = new ArrayList<Ofertante>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "SELECT id_per, email_per, resumen_per, nombreRazonSocial_per, direccion_per, telefono_per, celular_per, id_tipdoc, numeroDocumento_per FROM tb_persona where id_tipper = 2";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Ofertante ofert = new Ofertante();
+				ofert.setId(rs.getInt("id_per"));
+				ofert.setCorreo(rs.getString("email_per"));
+				ofert.setRazonSocial(rs.getString("nombreRazonSocial_per"));
+				ofert.setDireccion(rs.getString("direccion_per"));
+				ofert.setTelefono(rs.getString("telefono_per"));
+				ofert.setTipoDocumento(rs.getString("id_tipdoc"));
+				ofert.setNumeroDocumento(rs.getString("numeroDocumento_per"));
+				lista.add(ofert);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return lista;
+	}
 }
