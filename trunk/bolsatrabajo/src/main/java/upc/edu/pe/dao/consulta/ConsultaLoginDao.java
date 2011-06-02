@@ -4,29 +4,31 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import upc.edu.pe.dao.BaseDAO;
 import upc.edu.pe.exception.DAOExcepcion;
-import upc.edu.pe.model.Login;
 import upc.edu.pe.util.ConexionBD;
 
 public class ConsultaLoginDao extends BaseDAO{
 
-	public Login obtener(String email_per) throws DAOExcepcion {
+	public boolean obtener(String email_per, String contrasenha) throws DAOExcepcion {
 		System.out.println("ConsultaLoginDao: obtener(String email_per)");
-		Login vo = new Login();
+		
+		boolean flagRpta=false;
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select email_per, password_per from tb_persona where email_per=?";
+			String query = "select count(1) as contador from tb_persona where email_per= ? and password_per = ?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, email_per);
+			stmt.setString(2, contrasenha);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-
-				vo.setEmail_per(rs.getString(1));
-				vo.setPassword_per(rs.getString(2));
+				if(rs.getInt("contador")>0){
+					flagRpta=true;					
+				}				
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -36,6 +38,6 @@ public class ConsultaLoginDao extends BaseDAO{
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		return vo;
+		return flagRpta;
 	}
 }
