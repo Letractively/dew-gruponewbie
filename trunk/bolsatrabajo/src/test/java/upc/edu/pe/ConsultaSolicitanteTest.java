@@ -9,10 +9,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import upc.edu.pe.dao.consulta.ConsultaAvisoDao;
 import upc.edu.pe.dao.consulta.ConsultaPostulanteDao;
 import upc.edu.pe.exception.DAOExcepcion;
-import upc.edu.pe.model.Aviso;
 import upc.edu.pe.model.ExperienciaProfesional;
 import upc.edu.pe.model.Solicitante;
 
@@ -61,7 +59,6 @@ public class ConsultaSolicitanteTest {
 		
 		
 		// Visualizar los Experiencia Laboral del Solicitante
-		ExperienciaProfesional experiencia = new ExperienciaProfesional();
 		List<ExperienciaProfesional> lstExperienciaProfesional;
 		try {
 			lstExperienciaProfesional = consPosDao.obtenerExperienciaProfesional(solicitante);
