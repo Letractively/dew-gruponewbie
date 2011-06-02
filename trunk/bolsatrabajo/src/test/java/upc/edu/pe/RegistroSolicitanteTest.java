@@ -15,6 +15,7 @@ import upc.edu.pe.model.ExperienciaProfesional;
 import upc.edu.pe.model.Industria;
 import upc.edu.pe.model.PerfilProfesional;
 import upc.edu.pe.model.Solicitante;
+import upc.edu.pe.web.comun.Constantes;
 
 public class RegistroSolicitanteTest {
 
@@ -30,7 +31,7 @@ public class RegistroSolicitanteTest {
 		solicitante.setApellidoMaterno("ApellidoM Test");
 		solicitante.setDireccion("Av testeo");
 		solicitante.setNumeroDocumento("41656523");
-		solicitante.setSexo("M");//TODO: Validar M: Masculino || F: Femenino
+		solicitante.setSexo(Constantes.C_SEXO_MASCULINO);//TODO: Validar M: Masculino || F: Femenino
 		solicitante.setFechaNacimiento(new Date());
 		solicitante.setTelefono("565-6265");
 		solicitante.setCelular("99999999");
@@ -53,7 +54,7 @@ public class RegistroSolicitanteTest {
 		PerfilProfesional perfilProfesional = new PerfilProfesional();
 		perfilProfesional.setTituloProfesional("Ingeniero de Shystemas");
 		perfilProfesional.setResumenProfesional("Soy un profesional... ");
-		perfilProfesional.setDisponibilidadHoraria("C");//TODO: VALIDAR ESTE VALOR "C" Completo || "P" parcial
+		perfilProfesional.setDisponibilidadHoraria(Constantes.C_DISPONIBILIDAD_COMPLETA);//TODO: VALIDAR ESTE VALOR "C" Completo || "P" parcial
 		perfilProfesional.setPretencionEconomica(new BigDecimal("3500.00"));
 		solicitante.setPerfilProfesional(perfilProfesional);
 		
