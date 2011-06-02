@@ -10,6 +10,8 @@ import upc.edu.pe.exception.DAOExcepcion;
 
 public class LoginTest {
 	
+	
+	
 	//Otra versión de consultar login
 	@Test
 	public void listarSolicitantePorSueldoReferenciaTest(){
