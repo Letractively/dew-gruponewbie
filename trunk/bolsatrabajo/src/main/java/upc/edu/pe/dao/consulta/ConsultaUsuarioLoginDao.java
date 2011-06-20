@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import upc.edu.pe.dao.BaseDAO;
 import upc.edu.pe.exception.DAOExcepcion;
 import upc.edu.pe.model.Persona;
+import upc.edu.pe.model.TipoUsuario;
 import upc.edu.pe.util.ConexionBD;
 
 public class ConsultaUsuarioLoginDao extends BaseDAO {
@@ -20,7 +21,7 @@ public class ConsultaUsuarioLoginDao extends BaseDAO {
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "SELECT id_per, id_tipper FROM tb_persona where email_per = ? and password_per= ?";
+			String query = "SELECT id_per, id_tipper, id_tipusu FROM tb_persona where email_per = ? and password_per= ?";
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, nombreUsuario);
 			stmt.setString(2, contrasenha);
@@ -29,6 +30,9 @@ public class ConsultaUsuarioLoginDao extends BaseDAO {
 				per = new Persona();
 				per.setId(rs.getInt("id_per"));
 				per.setTipoPersona(rs.getString("id_tipper"));
+				TipoUsuario tu =new TipoUsuario();
+				tu.setIdTipoUsuario(rs.getInt("id_tipusu"));
+				per.setTipoUsuario(tu);
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());

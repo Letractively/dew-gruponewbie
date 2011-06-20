@@ -8,7 +8,7 @@ public class Persona {
 	private String correo;
 	private int id;
 	private String contrasenhia;
-	private String direccion;//TODO: AGREGAR DISTRITO, PROV Y DEP
+	private String direccion;// TODO: AGREGAR DISTRITO, PROV Y DEP
 	private String tipoDocumento;
 	private String numeroDocumento;
 	private String telefono;
@@ -22,54 +22,39 @@ public class Persona {
 	private String resumen;
 	private String titulo;
 	private Distrito distrito;
-	
+	private TipoUsuario tipoUsuario;
+
 	public Distrito getDistrito() {
 		return distrito;
 	}
-
-
 
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
 	}
 
-
-
 	public String getTitulo() {
 		return titulo;
 	}
-
-
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
-
-
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-
-
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-
-
 	public BigDecimal getSalario() {
 		return salario;
 	}
 
-
-
 	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -80,58 +65,37 @@ public class Persona {
 				+ celular + ", tipoPersona=" + tipoPersona + "]";
 	}
 
-	
-	
 	public String getDisponibilidad() {
 		return disponibilidad;
 	}
-
-
 
 	public void setDisponibilidad(String disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
 
-
-
 	public String getApellidoPaterno() {
 		return apellidoPaterno;
 	}
-
-
 
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
 
-
-
 	public String getApellidoMaterno() {
 		return apellidoMaterno;
 	}
-
-
 
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
-
-
-
-
-
 	public String getResumen() {
 		return resumen;
 	}
 
-
-
 	public void setResumen(String resumen) {
 		this.resumen = resumen;
 	}
-
-
 
 	public String getDireccion() {
 		return direccion;
@@ -148,7 +112,7 @@ public class Persona {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -164,7 +128,7 @@ public class Persona {
 	public void setContrasenhia(String contrasenhia) {
 		this.contrasenhia = contrasenhia;
 	}
-	
+
 	public String getTipoDocumento() {
 		return tipoDocumento;
 	}
@@ -172,7 +136,7 @@ public class Persona {
 	public void setTipoDocumento(String tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
-	
+
 	public String getNumeroDocumento() {
 		return numeroDocumento;
 	}
@@ -196,7 +160,7 @@ public class Persona {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
+
 	public String getTipoPersona() {
 		return tipoPersona;
 	}
@@ -204,5 +168,15 @@ public class Persona {
 	public void setTipoPersona(String tipoPersona) {
 		this.tipoPersona = tipoPersona;
 	}
+
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
+	
 
 }
