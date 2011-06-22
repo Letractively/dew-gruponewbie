@@ -75,4 +75,32 @@ public class RegistroPublicidadDao extends BaseDAO{
 		
 		return flagRpta;
 	}
+	
+	public boolean anularPublicidad(Publicidad publicidad) throws DAOExcepcion {
+		boolean flagRpta=true;
+		String query = "UPDATE tb_publicidad SET estado_publi = ? WHERE id_publi= ?";
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setString(1, publicidad.getEstado());
+			stmt.setInt(2, publicidad.getIdpublicidad());
+						
+			int i = stmt.executeUpdate();
+			if (i != 1) {
+				flagRpta=false;
+				throw new SQLException("No se pudo anular publicidad");
+			}
+		} catch (SQLException e) {
+			flagRpta=false;
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		
+		return flagRpta;
+	}
 }

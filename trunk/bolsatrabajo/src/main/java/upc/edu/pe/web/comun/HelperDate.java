@@ -29,4 +29,12 @@ public class HelperDate {
 		
 		return result;		
 	}
+	
+	public static String parseDateToString(Date date, String formato){
+
+		String fecha ="";
+		SimpleDateFormat sdf= new SimpleDateFormat(formato);//"dd/MM/yyyy");
+		fecha = sdf.format(date);
+		return fecha;
+	}
 }

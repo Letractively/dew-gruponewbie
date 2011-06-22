@@ -1,34 +1,60 @@
 <%@include file="/pages/comun/ValidarSession.jsp"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registro de Publicidad - Administrador</title>
-</head>
-<body>
+<%@include file="/pages/comun/cabecera.jsp"%>
+<%@page import="upc.edu.pe.web.comun.HelperDate"%>
+<%@page import="upc.edu.pe.model.Publicidad" %>
+<%@page import="upc.edu.pe.web.comun.Constantes"%>
 
-<form action="RegistroPublicidadServlet" method="post">
+<%
+Publicidad publi = (Publicidad)request.getAttribute(Constantes.SESSION_PUBLICIDAD);
+int id=0;
+String oper ="";
+String descripcion="";
+String cuerpo="";
+String enlace="";
+String fini="";
+String ffin="";
+String titulo="Registro de Publicidad";
+if(publi != null) {
+	titulo="Modificaci&oacute;n de Publicidad";
+	oper=Constantes.C_OPERACION_MODIFICAR;
+	id=publi.getIdpublicidad();
+	descripcion=publi.getDescripcion();
+	cuerpo=publi.getCuerpo();
+	enlace=publi.getEnlace();
+	fini=HelperDate.parseDateToString(publi.getFechainicial(),Constantes.FORMATO_FECHA_VIEW);
+	ffin=HelperDate.parseDateToString(publi.getFechafin(),Constantes.FORMATO_FECHA_VIEW);
+}
+%>
+
+<H2><%=titulo %></H2>
+<form id="form1" name="form1" method="post" action="RegistroPublicidadServlet">
 <table border=1>
 	<tr>
 		<td>Descripci&oacute;n:</td>
-		<td><input type="text" name="descripcion"></td>
+		<td><input type="text" name="descripcion" value="<%=descripcion %>" size="50" maxlength="100"></td>
 		<td>Fecha Inicial:</td>
-		<td><input type="text" name="finicial"></td>
+		<td><input type="text" name="finicial" value="<%=fini %>" size="20" maxlength="10"></td>
 	</tr>
 	<tr>
 		<td>Enlace:</td>
-		<td><input type="text" name="enlace"></td>
+		<td><input type="text" name="enlace" value="<%=enlace %>" size="50" maxlength="300"></td>
 		<td>Fecha Final:</td>
-		<td><input type="text" name="ffinal"></td>
+		<td><input type="text" name="ffinal" value="<%=ffin %>" size="20" maxlength="10"></td>
 	</tr>
 	<tr>
 		<td>Cuerpo:</td>
-		<td colspan="3"><textarea rows="4" cols="4"></textarea></td>
+		<td colspan="3"><textarea rows="4" cols="70" name="cuerpo"><%=cuerpo %></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<label>
+	    	<input type="submit" name="button2" value="Registrar" />
+	    </label>
+    	</td>
 	</tr>
 </table>
+<input type="hidden" name="id" value="<%=id%>">
+<input type="hidden" name="oper" value="<%=oper%>">
 </form>
 
-</body>
-</html>
+<%@include file="/pages/comun/pie.jsp"%>

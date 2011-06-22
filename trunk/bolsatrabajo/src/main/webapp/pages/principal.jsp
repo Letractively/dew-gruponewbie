@@ -69,7 +69,7 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 			<td>Opciones de Men&uacute; ADMINISTRADOR</td>
 		</tr>
 		<tr>
-			<td><a href="<%=request.getContextPath()%>/pages/registroPublicidad.jsp">Registro de Publicidad</a></td>
+			<td><a href="<%=request.getContextPath()%>/ListadoPublicidadServlet">Registro de Publicidad</a></td>
 		</tr>
 		<tr>
 			<td>Opciones 2</td>
