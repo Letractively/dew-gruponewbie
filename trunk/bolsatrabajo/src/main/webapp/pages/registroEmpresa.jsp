@@ -33,13 +33,17 @@
 
 </head>
 <%
-int idper=0;
+//int idper=0;
 String email="";
 String clave = "";
 String DesEmp ="";
 String razonSocial ="";
 String ruc="";
 String direccion ="";
+String teleFijo="";
+String teleCel="";
+String provincia="";
+String distrito="";
 
 String depa="";
 String id_tipper="2";
@@ -61,22 +65,22 @@ String id_tipper="2";
     <td>&nbsp;</td>
     <td>Provincia</td>
     <td>
-      <input name="txtProv" type="text" size="30px" maxlength="100" value="<%= %>" />    </td>
+      <input name="txtProv" type="text" size="30px" maxlength="100" value="<%=provincia%>" />    </td>
     <td>&nbsp;</td>
     <td>Distrito</td>
-    <td><input name="txtDis" type="text" size="25px" maxlength="100" value="<%= %>"/></td>
+    <td><input name="txtDis" type="text" size="25px" maxlength="100" value="<%=distrito%>"/></td>
   </tr>
-  <tr>
+  <%-- <tr>
     <td>Codigo</td>
     <td>
-      <input name="txtidPer" type="text" maxlength="10" value="<%=idper%>>"/>	</td>
+      <input name="txtidPer" type="text" maxlength="10" value="<%=idper%>"/>	</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-  </tr>
+  </tr> --%>
   <tr>
     <td>E-mail</td>
     <td colspan="4">
@@ -107,14 +111,14 @@ String id_tipper="2";
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>Fec.Ini.Oper</td>
-    <td><input name="txtFechaInicio" type="text" maxlength="10" value="<%= %>"/></td>
-    <td>&nbsp;</td>
     <td>Tel&eacute;fono</td>
-    <td><input name="txtTelefonoFijo" type="text" size="30px" maxlength="10" value="<%= %>"/></td>
+    <td><input name="txtTelefonoFijo" type="text" size="30px" maxlength="10" value="<%=teleFijo%>"/></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>Cel.</td>
-    <td><input name="txtTelefonoCel" type="text" size="25px" maxlength="10" value="<%= %>"/></td>
+    <td><input name="txtTelefonoCel" type="text" size="25px" maxlength="10" value="<%=teleCel%>"/></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -130,8 +134,7 @@ String id_tipper="2";
     <td>&nbsp;</td>
     <td colspan="4">
     	<input type="submit" name="btnRegistrar" value="Registrar" onsubmit="return F_Validar();"/>
-      	<input type="submit" name="btnCancelar" value="Cancelar" />
-      	</td>
+      	<input type="submit" name="btnCancelar" value="Cancelar" />      	</td>
     <!-- <td>&nbsp;</td> 
     <td>&nbsp;</td>
     <td>&nbsp;</td>-->
