@@ -1,0 +1,71 @@
+.dialog-overlay {
+	background-color: #F0F0F0;
+	opacity: 0.5;
+	filter:  alpha(opacity=50);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.dialog-wrapper {
+	overflow: hidden;
+}
+
+.dialog {
+	border: 1px  #00a3df;
+}
+
+.dialog-header {
+	border: 1px solid #00a3df;
+	color: #FFFFFF;
+	background: #3091BF none no-repeat right center;
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.dialog-body {
+	border: 1px solid #00a3df;
+}
+
+.dialog-content {
+	padding: 10px;
+	background-color: #FFFFFF;	
+}
+
+.dialog-actions {
+	background-color: #F2F2F2;
+	border-top: 1px solid #CCCCCC;
+	padding: 3px 10px;
+	text-align: right;
+}
+
+.dialog-button {
+	border-right:#ccc 1px solid;
+	border-top:#ccc 1px solid;
+	border-left:#ccc 1px solid;
+	border-bottom:#ccc 1px solid;
+	font-size:10px;
+	color:#666;
+	font-family:Tahoma, Verdana, Arial;
+	font-weight:700;
+	background-color:#FFFFFF;
+	background-image:url(../images/barra1.gif);
+	text-decoration:none;
+	cursor: pointer;
+}
+
+iframe.iefix {
+	display: none;
+	display/**/: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter:mask();
+	overflow:scroll;
+	
+}
