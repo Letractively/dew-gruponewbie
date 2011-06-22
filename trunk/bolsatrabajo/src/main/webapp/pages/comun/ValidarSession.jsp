@@ -4,7 +4,7 @@
 
 TipoUsuario tipoUsuario = (TipoUsuario)session.getAttribute(Constantes.SESSION_TIPO_USUARIO);
 if (tipoUsuario == null){
-	request.getRequestDispatcher("error.jsp").forward(request, response);
+	request.getRequestDispatcher("comun/error.jsp").forward(request, response);
 	return;
 }
 

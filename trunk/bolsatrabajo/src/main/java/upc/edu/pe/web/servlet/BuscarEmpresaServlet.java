@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import upc.edu.pe.dao.consulta.ConsultaEmpresaDao;
 import upc.edu.pe.dao.consulta.ConsultarIndistriaDao;
@@ -55,7 +54,6 @@ public class BuscarEmpresaServlet extends HttpServlet {
 		try {
 			List<Ofertante> lstOferta = consultaEmpresaDao.listadoGeneral();
 			List<Industria> lstIndustria = ConsultarIndistriaDao.listarIndustria();
-			HttpSession session = request.getSession();
 		
 			request.getSession().setAttribute(Constantes.SESSION_LISTA_INDUSTRIA, lstIndustria);
 			request.setAttribute(Constantes.SESSION_LISTA_OFERTANTE, lstOferta);

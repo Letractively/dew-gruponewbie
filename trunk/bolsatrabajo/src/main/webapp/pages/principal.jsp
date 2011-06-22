@@ -13,6 +13,7 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 	out.print(ofer.getRazonSocial());
 	//Imprimir Menú Ofertante
 %>
+<br/><br/>
 	<table>
 		<tr>
 			<td>Opciones de Men&uacute; Ofertante</td>
@@ -60,6 +61,6 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 
 %></b><br/>  
 
-<a href="rolBuscar.jsp">Mantenimiento de Roles</a><br/>
-<a href="LogoutServlet">Salir del sistema</a>
+<!-- <a href="rolBuscar.jsp">Mantenimiento de Roles</a><br/>
+<a href="LogoutServlet">Salir del sistema</a> -->
 <%@include file="/pages/comun/pie.jsp"%>
