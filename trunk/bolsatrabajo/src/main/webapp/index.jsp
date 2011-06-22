@@ -8,7 +8,8 @@ Clave: <input type="password" name="clave"/> <br/>
 <br/><br/>
 
 Si no se encuentra registrado:<br/>
-<a href="pages/datosEmpresa.jsp">Reg&iacute;strese como empresa</a><br/>
+<a href="pages/registroEmpresa.jsp">Reg&iacute;strese como empresa</a><br/>
+<!-- <a href="pages/datosEmpresa.jsp">Reg&iacute;strese como empresa</a><br/> -->
 <a href="<%=request.getContextPath()%>/PostulanteServlet">Reg&iacute;strese como solicitante</a>
 
 </form>
