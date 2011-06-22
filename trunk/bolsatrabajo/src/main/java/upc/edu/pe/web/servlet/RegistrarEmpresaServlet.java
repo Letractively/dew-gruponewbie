@@ -40,18 +40,27 @@ public class RegistrarEmpresaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String x = request.getParameter("razonsocial");
-		String y = request.getParameter("nrodocumento");
-
+		String nSocial = request.getParameter("razonSocial");
+		String email = request.getParameter("email");
+		String clave = request.getParameter("clave");		
+		String tipDoc = request.getParameter("id_tipdoc");
+		String nRuc = request.getParameter("ruc");		
+		String Fijo = request.getParameter("teleFijo");		
+		String tipPer = request.getParameter("id_tipper");		
+				
 		Ofertante r = new Ofertante();
-		r.setRazonSocial(x);
-		r.setNumeroDocumento(y);
-		
+		r.setRazonSocial(nSocial);		
+		r.setCorreo(email);
+		r.setContrasenhia(clave);		
+		r.setTipoDocumento(tipDoc);	
+		r.setNumeroDocumento(nRuc);		
+		r.setTelefono(Fijo);		
+		r.setTipoPersona(tipPer);
+			
 		RegistroOfertanteDao dao = new RegistroOfertanteDao();
 		try {
 			dao.registrarOfertante(r);
-			response.sendRedirect(request.getContextPath()
-					+ "/RolBuscarServlet");
+			response.sendRedirect(request.getContextPath()+ "/RolBuscarServlet");
 		} catch (DAOExcepcion e) {
 			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
 			rd.forward(request, response);
