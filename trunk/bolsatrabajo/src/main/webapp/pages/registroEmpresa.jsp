@@ -33,18 +33,14 @@
 
 </head>
 <%
-//int idper=0;
+
 String email="";
 String clave = "";
-String DesEmp ="";
 String razonSocial ="";
 String ruc="";
 String direccion ="";
 String teleFijo="";
 String teleCel="";
-String provincia="";
-String distrito="";
-String depa="";
 String id_tipper="2";
 String id_tipusu="1";
 String id_tipdoc="2";
@@ -60,29 +56,6 @@ String id_tipdoc="2";
   <div style="padding-top:10px"> 
   <table width="600" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td>Departamento</td>
-    <td>
-      <input name="txtDepa" type="text" maxlength="100" value="<%=depa%>"/>    </td>
-    <td>&nbsp;</td>
-    <td>Provincia</td>
-    <td>
-      <input name="txtProv" type="text" size="30px" maxlength="100" value="<%=provincia%>" />    </td>
-    <td>&nbsp;</td>
-    <td>Distrito</td>
-    <td><input name="txtDis" type="text" size="25px" maxlength="100" value="<%=distrito%>"/></td>
-  </tr>
-  <%-- <tr>
-    <td>Codigo</td>
-    <td>
-      <input name="txtidPer" type="text" maxlength="10" value="<%=idper%>"/>	</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr> --%>
-  <tr>
     <td>E-mail</td>
     <td colspan="4">
       <input name="txtEmail" type="text" size="59" maxlength="50" value="<%=email%>"/>	</td>
@@ -91,26 +64,13 @@ String id_tipdoc="2";
     <td><input name="txtPassword" type="password" size="25px" maxlength="50" value="<%=clave%>"/></td>
   </tr>
   <tr>
-    <td>Resumen Em </td>
-    <td colspan="4"><input name="txtResumenPer" type="text" size="59" maxlength="150" value="<%=DesEmp%>"/></td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
     <td>Razon Social </td>
     <td colspan="4"><input name="txtRazonSocial" type="text" size = "59" maxlength="70" value="<%=razonSocial%>"/></td>
     <td>&nbsp;</td>
     <td>Ruc</td>
     <td><input name="txtRuc" type="text" size="25px" maxlength="11" value="<%=ruc%>"/></td>
   </tr>
-  <tr>
-    <td>Direcci&ograve;n</td>
-    <td colspan="4"><input name="txtDireccion" type="text" size="59" maxlength="140" value="<%=direccion%>"/></td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+  
   <tr>
     <td>Tel&eacute;fono</td>
     <td><input name="txtTelefonoFijo" type="text" size="30px" maxlength="10" value="<%=teleFijo%>"/></td>
@@ -118,8 +78,8 @@ String id_tipdoc="2";
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>Cel.</td>
-    <td><input name="txtTelefonoCel" type="text" size="25px" maxlength="10" value="<%=teleCel%>"/></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
