@@ -71,7 +71,7 @@ public class ConsultaPostulanteDao extends BaseDAO{
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "SELECT p.nombreRazonSocial_per as Nombre,p.apellidoPaterno_per as ApellidoPaterno,p.apellidoMaterno_per as ApellidoMaterno,p.titulo_per as Titulo,p.email_per as Email,p.numeroDocumento_per as NumeroDocumento,p.fechaNacimiento_per as FechaNacimiento,p.sexo_per as Sexo,p.telefono_per,p.celular_per,t.nombre_dep as Departamento,v.nombre_prov as Provincia,d.nombre_dis as Distrito,p.direccion_per as Direccion,p.salario_per as Salario,p.disponibilidad_per as Disponibilidad FROM tb_persona p,tb_distrito d,tb_provincia v,tb_departamento t WHERE p.id_dis=d.id_dis AND d.id_prov=v.id_prov AND v.id_dep=t.id_dep AND p.id_per=?";
+			String query = "SELECT p.resumen_per,p.nombreRazonSocial_per as Nombre,p.apellidoPaterno_per as ApellidoPaterno,p.apellidoMaterno_per as ApellidoMaterno,p.titulo_per as Titulo,p.email_per as Email,p.numeroDocumento_per as NumeroDocumento,p.fechaNacimiento_per as FechaNacimiento,p.sexo_per as Sexo,p.telefono_per,p.celular_per,t.nombre_dep as Departamento,v.nombre_prov as Provincia,d.nombre_dis as Distrito,p.direccion_per as Direccion,p.salario_per as Salario,p.disponibilidad_per as Disponibilidad FROM tb_persona p,tb_distrito d,tb_provincia v,tb_departamento t WHERE p.id_dis=d.id_dis AND d.id_prov=v.id_prov AND v.id_dep=t.id_dep AND p.id_per=?";
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, solicitante.getId());
 			rs = stmt.executeQuery();
@@ -80,6 +80,7 @@ public class ConsultaPostulanteDao extends BaseDAO{
 				sol.setId(solicitante.getId());
 				PerfilProfesional perfil = new PerfilProfesional();
 				
+				sol.setResumen(rs.getString("resumen_per"));
 				sol.setNombre(rs.getString("Nombre"));
 				sol.setApellidoPaterno(rs.getString("ApellidoPaterno"));
 				sol.setApellidoMaterno(rs.getString("ApellidoMaterno"));

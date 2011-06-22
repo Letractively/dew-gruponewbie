@@ -39,6 +39,7 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 	//Imprimir Menú Solicitante
 	
 %>
+<br/><br/>
 	<table>
 		<tr>
 			<td>Opciones de Men&uacute; Solicitante</td>
@@ -56,9 +57,32 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 			<td>Opciones 4</td>
 		</tr>
 	</table>
+<%//ADMINISTRADOR
+}else if (tipoUsuario.getIdTipoUsuario()==3){
+	Solicitante sol=(Solicitante)session.getAttribute(Constantes.SESSION_USUARIO);
+	out.print(sol.getResumen());
+	//Imprimir Menú ADMINISTRADOR
+%>
+<br/><br/>
+	<table>
+		<tr>
+			<td>Opciones de Men&uacute; ADMINISTRADOR</td>
+		</tr>
+		<tr>
+			<td><a href="<%=request.getContextPath()%>/pages/registroPublicidad.jsp">Registro de Publicidad</a></td>
+		</tr>
+		<tr>
+			<td>Opciones 2</td>
+		</tr>
+		<tr>
+			<td>Opciones 3</td>
+		</tr>
+		<tr>
+			<td>Opciones 4</td>
+		</tr>
+	</table>
 <%
 }
-
 %></b><br/>  
 
 <!-- <a href="rolBuscar.jsp">Mantenimiento de Roles</a><br/>

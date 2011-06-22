@@ -29,7 +29,7 @@
 <body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><a href="principal.jsp" class="titulo_tienda">Bolsa de Trabajo v1</a></td>
+    <td><a href="index.jsp" class="titulo_tienda">Bolsa de Trabajo v1</a></td>
   </tr>
 </table>
 <br/>
