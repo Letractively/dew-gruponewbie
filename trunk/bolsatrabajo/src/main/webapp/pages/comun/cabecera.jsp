@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Sistema de Bolsa de Trabajo</title>
+<link href="<%=request.getContextPath()%>/theme/sidCSS.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
 .titulo_tienda {
@@ -20,16 +20,16 @@
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	font-weight: bold;
-	color: #666666;
+	color: #FFFFFF;
 }
 -->
 </style>
 </head>
 
 <body>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor=#666>
   <tr>
-    <td><a href="index.jsp" class="titulo_tienda">Bolsa de Trabajo v1</a></td>
+    <td align="center" class="texto_celeste_titulob" >Bolsa de Trabajo Grupo Newbie</td>
   </tr>
 </table>
 <br/>
