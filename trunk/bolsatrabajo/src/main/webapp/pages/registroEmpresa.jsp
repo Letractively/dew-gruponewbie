@@ -44,9 +44,10 @@ String teleFijo="";
 String teleCel="";
 String provincia="";
 String distrito="";
-
 String depa="";
 String id_tipper="2";
+String id_tipusu="1";
+String id_tipdoc="2";
 %>
 <body>
 <form id="form1" name="form1" method="post" action="RegistrarEmpresaServlet">
@@ -158,7 +159,8 @@ String id_tipper="2";
 </table>
 </div>
 <input type="hidden" name="idpersona" value="<%=id_tipper%>">
-
+<input type="hidden" name="idTipousu" value="<%=id_tipusu%>">
+<input type="hidden" name="idTipousu" value="<%=id_tipdoc%>">
 </form>
 </body>
 </html>
