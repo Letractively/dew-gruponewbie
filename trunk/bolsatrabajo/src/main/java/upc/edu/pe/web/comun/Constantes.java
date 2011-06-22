@@ -23,9 +23,13 @@ public final class Constantes {
 	public static final String C_PERSONA_JURIDICA ="2";
 	
 	public static final String SESSION_LISTA_INDUSTRIA="listaIndustria";
+	public static final String SESSION_LISTA_AVISO="lstAviso";
 	public static final String SESSION_LISTA_OFERTANTE="listaOfertante";
 	public static final String SESSION_LISTA_PUBLICIDAD="listaPublicidad";
-	
 	public static final String SESSION_PUBLICIDAD="Publicidad";
+	
+	public static final String SESSION_LISTA_AVISO_POSTULANTE="listaAvisoPostulante";
+	public static final String SESSION_LISTA_ESTADISTICA="listaEstadistica";	
+	
 	
 }
