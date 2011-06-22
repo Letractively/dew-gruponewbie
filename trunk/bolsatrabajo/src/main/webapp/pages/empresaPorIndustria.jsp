@@ -6,11 +6,15 @@
 <%@page import="upc.edu.pe.model.Solicitante" %>
 <%@page import="upc.edu.pe.model.Industria" %>
 <%@page import="java.util.*" %>
-
-<p><strong>Lista de empresas:</strong></p>
-
+<link href="<%=request.getContextPath()%>/theme/sidCSS.css" rel="stylesheet" type="text/css">
+<center>
+<table width="800" border="0"  align="center">
+  <tr>
+    <td align="center" class="texto_celeste_titulo">Busqueda de Postulantes por Criterio</td>
+  </tr>
+</table>
 <form id="form1" name="form1" method="post" action="BuscarIndustriaServlet">
-  <p>Rubro: 
+  <p class="texto_gris">Rubro: 
 	<select name="industria">   
 <%
 List<Industria> lstIndustria = (ArrayList<Industria>)session.getAttribute(Constantes.SESSION_LISTA_INDUSTRIA);
@@ -29,11 +33,11 @@ if(lstIndustria != null) {
   </p>
 </form>
 <table width="550" height="65" border="1" cellpadding="0" cellspacing="0">
-  <tr>
-  	<th width="49" scope="col">Nro.</th>
-    <th width="120" scope="col">Nombre Empresa</th>
-    <th width="192" scope="col">Direcci&oacute;n</th>
-    <th width="150" scope="col">Correo Electr&oacute;nico</th>
+  <tr class="fondo_celeste">
+  	<td class="texto_blanco" width="49" scope="col">Nro.</th>
+    <td class="texto_blanco" width="120" scope="col">Nombre Empresa</th>
+    <td class="texto_blanco" width="192" scope="col">Direcci&oacute;n</th>
+    <td class="texto_blanco" width="150" scope="col">Correo Electr&oacute;nico</th>
   </tr>
 
 
@@ -44,10 +48,10 @@ if(lstOferta != null) {
 		Ofertante ofer=lstOferta.get(i);
 	%>  
 	  <tr>
-	    <td><% out.print(i+1); %></td>
-	    <td><% out.print(ofer.getRazonSocial()); %></td>
-	    <td><% out.print(ofer.getDireccion()); %></td>
-	    <td><% out.print(ofer.getCorreo()); %></td>
+	    <td class="texto_gris"><% out.print(i+1); %></td>
+	    <td class="texto_gris"><% out.print(ofer.getRazonSocial()); %></td>
+	    <td class="texto_gris"><% out.print(ofer.getDireccion()); %></td>
+	    <td class="texto_gris"><% out.print(ofer.getCorreo()); %></td>
 	  </tr>
 	<%
 	}
@@ -55,4 +59,5 @@ if(lstOferta != null) {
   %>
   
 </table>
+</center>
 <%@include file="/pages/comun/pie.jsp"%>

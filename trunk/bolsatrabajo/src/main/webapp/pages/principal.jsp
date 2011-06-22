@@ -4,31 +4,35 @@
 <%@page import="upc.edu.pe.model.TipoUsuario" %>
 <%@page import="upc.edu.pe.model.Ofertante" %>
 <%@page import="upc.edu.pe.model.Solicitante" %>
+<link href="<%=request.getContextPath()%>/theme/sidCSS.css" rel="stylesheet" type="text/css">
+<body>
 
-Bienvenido al sistema:  <b>
-<%
+
+	<table align="center" width="500" border="1">
+		<tr>
+		<td></td>
+		</tr>
+		<tr>
+			<td align="right"><b class="texto_grisb14">Bienvenido al sistema:
+						<%
  	//Ofertante
-if(tipoUsuario.getIdTipoUsuario()==1) {
-	Ofertante ofer=(Ofertante)session.getAttribute(Constantes.SESSION_USUARIO);
-	out.print(ofer.getRazonSocial());
-	//Imprimir Menú Ofertante
-%>
+	if(tipoUsuario.getIdTipoUsuario()==1) {
+		Ofertante ofer=(Ofertante)session.getAttribute(Constantes.SESSION_USUARIO);
+		out.print(ofer.getRazonSocial());
+	%></b>	
+			</td>
+		</tr>
+	</table>
 <br/><br/>
-	<table>
+	<table align="center" width="500" >
 		<tr>
-			<td>Opciones de Men&uacute; Ofertante</td>
+			<td class="texto_gris13"><a href="<%=request.getContextPath()%>/CargaBuscarPostulanteCriterioServlet">Buscar Postulantes por Criterio</a></td>
 		</tr>
 		<tr>
-			<td>Opciones 1</td>
+			<td class="texto_gris13"><a href="<%=request.getContextPath()%>/CargaEstadisticaPostulacionesServlet">Cantidad de Postulantes por Oferta</a></td>
 		</tr>
 		<tr>
-			<td>Opciones 2</td>
-		</tr>
-		<tr>
-			<td>Opciones 3</td>
-		</tr>
-		<tr>
-			<td>Opciones 4</td>
+				<td><a href="index.jsp">Salir</a></td>
 		</tr>
 	</table>
 	
@@ -40,21 +44,12 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 	
 %>
 <br/><br/>
-	<table>
+	<table align="center" width="500" border="1">
 		<tr>
-			<td>Opciones de Men&uacute; Solicitante</td>
+			<td class="texto_gris13" align="center"><a href="<%=request.getContextPath()%>/BuscarEmpresaServlet">Buscar Empresa por Rubro</a></td>
 		</tr>
 		<tr>
-			<td><a href="<%=request.getContextPath()%>/BuscarEmpresaServlet">Buscar Empresa por Rubro</a></td>
-		</tr>
-		<tr>
-			<td>Opciones 2</td>
-		</tr>
-		<tr>
-			<td>Opciones 3</td>
-		</tr>
-		<tr>
-			<td>Opciones 4</td>
+			<td class="texto_gris13" align="center"><a href="index.jsp">Salir</a></td>
 		</tr>
 	</table>
 <%//ADMINISTRADOR
@@ -64,27 +59,18 @@ if(tipoUsuario.getIdTipoUsuario()==1) {
 	//Imprimir Menú ADMINISTRADOR
 %>
 <br/><br/>
-	<table>
+	<table align="center" width="500"  border="1">
 		<tr>
-			<td>Opciones de Men&uacute; ADMINISTRADOR</td>
+			<td class="texto_gris13">Opciones de Men&uacute; ADMINISTRADOR</td>
 		</tr>
 		<tr>
-			<td><a href="<%=request.getContextPath()%>/ListadoPublicidadServlet">Registro de Publicidad</a></td>
-		</tr>
-		<tr>
-			<td>Opciones 2</td>
-		</tr>
-		<tr>
-			<td>Opciones 3</td>
-		</tr>
-		<tr>
-			<td>Opciones 4</td>
+			<td class="texto_gris13"><a href="<%=request.getContextPath()%>/ListadoPublicidadServlet">Registro de Publicidad</a></td>
 		</tr>
 	</table>
 <%
 }
 %></b><br/>  
-
+</body>
 <!-- <a href="rolBuscar.jsp">Mantenimiento de Roles</a><br/>
 <a href="LogoutServlet">Salir del sistema</a> -->
 <%@include file="/pages/comun/pie.jsp"%>
