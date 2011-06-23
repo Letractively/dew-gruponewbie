@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import upc.edu.pe.dao.consulta.ConsultaEmpresaDao;
+import upc.edu.pe.dao.consulta.ConsultaDistritoDao;
 import upc.edu.pe.exception.DAOExcepcion;
-import upc.edu.pe.model.Ofertante;
+import upc.edu.pe.model.Distrito;
 import upc.edu.pe.web.comun.Constantes;
 
 /**
- * Servlet implementation class BuscarIndustriaServlet
+ * Servlet implementation class PostulanteServlet
  */
-@WebServlet("/BuscarIndustriaServlet")
-public class BuscarIndustriaServlet extends HttpServlet {
+@WebServlet("/PostulanteServlet")
+public class PostulanteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuscarIndustriaServlet() {
+    public PostulanteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,18 +43,17 @@ public class BuscarIndustriaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request, response);
 	}
-
+	
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
-		int idIndustria = Integer.parseInt(request.getParameter("industria"));
-		ConsultaEmpresaDao consultaEmpresaDao = new ConsultaEmpresaDao();
+		
+		ConsultaDistritoDao consultaDistritoDao = new ConsultaDistritoDao();
+		
 		try {
-			List<Ofertante> lstOferta = consultaEmpresaDao.buscarPorIndustria(idIndustria);
-
-			request.setAttribute(Constantes.SESSION_LISTA_OFERTANTE, lstOferta);
-			RequestDispatcher rd = request.getRequestDispatcher("/pages/empresaPorIndustria.jsp");
-			rd.forward(request, response);
+			List<Distrito> lstDistrito = consultaDistritoDao.listar();
+			request.getSession().setAttribute(Constantes.SESSION_LISTA_DISTRITO, lstDistrito);
+			RequestDispatcher rd = request.getRequestDispatcher("/pages/registroPostulante.jsp");
+			rd.forward(request, response);			
 		} catch (DAOExcepcion e) {
 			System.err.println("Error");
 			RequestDispatcher rd = request.getRequestDispatcher("/pages/comun/error.jsp");

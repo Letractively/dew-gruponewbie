@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import upc.edu.pe.dao.consulta.ConsultaAvisoDao;
 import upc.edu.pe.exception.DAOExcepcion;
 import upc.edu.pe.model.Aviso;
+import upc.edu.pe.model.Especialidad;
 import upc.edu.pe.web.comun.Constantes;
 
 /**
@@ -48,10 +49,12 @@ public class BuscarOportunidadServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String oportunidad = request.getParameter("oportunidad");
+		Especialidad esp = new Especialidad();
+		esp.setIdEspecialidad(Integer.parseInt(oportunidad));
 		ConsultaAvisoDao consultaAvisoDao = new ConsultaAvisoDao();
 		//ConsultarIndistriaDao ConsultarIndistriaDao = new ConsultarIndistriaDao();
 		try {
-			List<Aviso> lstAviso = consultaAvisoDao.listarAvisosPorEspecialidad(oportunidad);
+			List<Aviso> lstAviso = consultaAvisoDao.listarAvisosPorEspecialidad(esp);
 			//List<Industria> lstIndustria = ConsultarIndistriaDao.listarIndustria();
 			//HttpSession session = request.getSession();
 		

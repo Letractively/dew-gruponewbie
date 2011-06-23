@@ -28,21 +28,21 @@ if(publi != null) {
 
 <H2><%=titulo %></H2>
 <form id="form1" name="form1" method="post" action="RegistroPublicidadServlet">
-<table border=1>
+<table border=0>
 	<tr>
-		<td>Descripci&oacute;n:</td>
+		<td  class="texto_gris">Descripci&oacute;n:</td>
 		<td><input type="text" name="descripcion" value="<%=descripcion %>" size="50" maxlength="100"></td>
-		<td>Fecha Inicial:</td>
+		<td  class="texto_gris">Fecha Inicial(dd/mm/yyyy):</td>
 		<td><input type="text" name="finicial" value="<%=fini %>" size="20" maxlength="10"></td>
 	</tr>
 	<tr>
-		<td>Enlace:</td>
+		<td class="texto_gris">Enlace:</td>
 		<td><input type="text" name="enlace" value="<%=enlace %>" size="50" maxlength="300"></td>
-		<td>Fecha Final:</td>
+		<td class="texto_gris">Fecha Final(dd/mm/yyyy):</td>
 		<td><input type="text" name="ffinal" value="<%=ffin %>" size="20" maxlength="10"></td>
 	</tr>
 	<tr>
-		<td>Cuerpo:</td>
+		<td class="texto_gris">Cuerpo:</td>
 		<td colspan="3"><textarea rows="4" cols="70" name="cuerpo"><%=cuerpo %></textarea></td>
 	</tr>
 	<tr>

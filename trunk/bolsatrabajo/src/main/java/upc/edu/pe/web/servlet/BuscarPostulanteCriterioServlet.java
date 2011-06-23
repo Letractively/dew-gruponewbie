@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import upc.edu.pe.dao.consulta.ConsultaDetalleAvisoPostulanteDao;
 import upc.edu.pe.model.Aviso;
@@ -57,11 +56,15 @@ public class BuscarPostulanteCriterioServlet extends HttpServlet {
 		try {
 			System.out.println("***** BuscarPostulanteCriterioServlet *****");
 			
-			if(request.getParameter("txtEdad")!=null){
+			if(request.getParameter("txtEdad")!=""){
 				edad = Integer.valueOf(request.getParameter("txtEdad")).intValue();
 			}
 			if((request.getParameter("txtSalario")!=null)||(request.getParameter("txtSalario")!="")){
-				sueldo = Double.valueOf(request.getParameter("txtSalario")).doubleValue();
+				try{
+					sueldo = Double.valueOf(request.getParameter("txtSalario")).doubleValue();
+				}catch (Exception e) {
+					sueldo=0;
+				}
 				persona.setSalario(new BigDecimal(sueldo));
 			}
 			if((request.getParameter("optAviso")!=null) || (request.getParameter("optAviso")!="")){

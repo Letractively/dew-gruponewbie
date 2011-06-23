@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import upc.edu.pe.dao.registro.RegistroPostulanteDao;
 import upc.edu.pe.exception.DAOExcepcion;
+import upc.edu.pe.model.Distrito;
 import upc.edu.pe.model.ExperienciaProfesional;
 import upc.edu.pe.model.Industria;
 import upc.edu.pe.model.PerfilProfesional;
@@ -35,6 +36,8 @@ public class RegistroSolicitanteTest {
 		solicitante.setFechaNacimiento(new Date());
 		solicitante.setTelefono("565-6265");
 		solicitante.setCelular("99999999");
+		Distrito dis = new Distrito();
+		dis.setId_distrito("150101");
 		
 		
 		//Enviamos los datos a la capa service

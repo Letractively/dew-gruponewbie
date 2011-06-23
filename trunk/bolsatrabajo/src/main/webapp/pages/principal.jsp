@@ -44,9 +44,15 @@
 	
 %>
 <br/><br/>
-	<table align="center" width="500" border="1">
+	<table align="center" width="500">
 		<tr>
 			<td class="texto_gris13" align="center"><a href="<%=request.getContextPath()%>/BuscarEmpresaServlet">Buscar Empresa por Rubro</a></td>
+		</tr>
+		<tr>
+			<td class="texto_gris13" align="center"><a href="<%=request.getContextPath()%>/PerfilProfesionalServlet">Registrar Perfil Profesional</a></td>
+		</tr>
+		<tr>
+			<td class="texto_gris13" align="center"><a href="<%=request.getContextPath()%>/ExperienciaProfesionalServlet">Registrar Experiencia Profesional</a></td>
 		</tr>
 		<tr>
 			<td class="texto_gris13" align="center"><a href="index.jsp">Salir</a></td>
@@ -59,7 +65,7 @@
 	//Imprimir Menú ADMINISTRADOR
 %>
 <br/><br/>
-	<table align="center" width="500"  border="1">
+	<table align="center" width="500">
 		<tr>
 			<td class="texto_gris13">Opciones de Men&uacute; ADMINISTRADOR</td>
 		</tr>

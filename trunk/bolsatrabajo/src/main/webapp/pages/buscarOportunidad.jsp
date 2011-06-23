@@ -1,13 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
+<%@include file="/pages/comun/ValidarSession.jsp"%>
+<%@include file="/pages/comun/cabecera.jsp"%>
+<%@page import="upc.edu.pe.web.comun.Constantes"%>
+<%@page import="upc.edu.pe.model.Aviso" %>
+<%@page import="java.util.*" %>
 <p><strong>Lista de Oportunidades:</strong></p>
 
 <form id="form1" name="form1" method="post" action="BuscarOportunidadServlet">
@@ -41,15 +36,15 @@ if(lstAviso != null) {
 	  <tr>
 	    <td><% out.print(i+1); %></td>
 	    <td><% out.print(aviso.getCargo()); %></td>
-	    <td><% out.print(aviso.getfechainicio()); %></td>
-	    <td><% out.print(aviso.getfechafin()); %></td>
-	    <td><% out.print(aviso.getdescripcion()); %></td>
-	    <td><% out.print(aviso.getjornadaLaboral()); %></td>
-	    <td><% out.print(aviso.getdisponibilidad()); %></td>
-	    <td><% out.print(aviso.getrequerimiento()); %></td>
-	    <td><% out.print(aviso.getbeneficios()); %></td>
-	    <td><% out.print(aviso.getsueldo()); %></td>
-	    <td><% out.print(aviso.getespecialidad()); %></td>
+	    <td><% out.print(aviso.getFechaInicio()); %></td>
+	    <td><% out.print(aviso.getFechaFin()); %></td>
+	    <td><% out.print(aviso.getDescripcion()); %></td>
+	    <td><% out.print(aviso.getJornadaLaboral()); %></td>
+	    <td><% out.print(aviso.getDisponibilidad()); %></td>
+	    <td><% out.print(aviso.getRequerimiento()); %></td>
+	    <td><% out.print(aviso.getBeneficios()); %></td>
+	    <td><% out.print(aviso.getSueldo()); %></td>
+	    <td><% out.print(aviso.getEspecialidad()); %></td>
 	  </tr>
 	<%
 	}
@@ -57,6 +52,4 @@ if(lstAviso != null) {
   %>
   
 </table>
-
-</body>
-</html>
+<%@include file="/pages/comun/pie.jsp"%>

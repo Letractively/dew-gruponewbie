@@ -1,13 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<H2><%=titulo %></H2>
+<%@include file="/pages/comun/ValidarSession.jsp"%>
+<%@include file="/pages/comun/cabecera.jsp"%>
+
+<H2><%//=titulo %></H2>
 <form id="form1" name="form1" method="post" action="RegistrarOportunidadServlet">
 <table border=1>
 	<tr>
@@ -59,5 +53,5 @@
 	</tr>
 </table>
 </form>
-</body>
-</html>
+
+<%@include file="/pages/comun/pie.jsp"%>

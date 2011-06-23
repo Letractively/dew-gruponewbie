@@ -1,3 +1,4 @@
+<%@page import="upc.edu.pe.web.comun.HelperDate"%>
 <%@page import="java.util.*" %>
 <%@page import="upc.edu.pe.web.comun.Constantes"%>
 <%@page import="upc.edu.pe.model.Aviso" %>
@@ -34,8 +35,8 @@ if(listaEstadistica != null) {
 	  <tr >
 	    <td class="texto_gris"><% out.print(i+1); %></td>
 	 	<td class="texto_gris"><% out.print(dap.getCargo()); %></td>
-	   	<td class="texto_gris" align="center"><% out.print(dap.getFechaInicio()); %></td>
-	   <td class="texto_gris" align="center"><% out.print(dap.getFechaFin()); %></td>
+	   	<td class="texto_gris" align="center"><% out.print(HelperDate.parseDateToString(dap.getFechaInicio(),Constantes.FORMATO_FECHA_VIEW)); %></td>
+	   <td class="texto_gris" align="center"><% out.print(HelperDate.parseDateToString(dap.getFechaFin(),Constantes.FORMATO_FECHA_VIEW)); %></td>
 	   <td class="texto_gris" align="right"><% out.print(dap.getSueldo()); %></td>
 	    <td class="texto_gris" align="right"><% out.print(dap.getTotalPostulantes()); %></td>
 	  </tr>

@@ -85,7 +85,8 @@ public class ConsultaPostulanteDao extends BaseDAO{
 				sol.setApellidoPaterno(rs.getString("ApellidoPaterno"));
 				sol.setApellidoMaterno(rs.getString("ApellidoMaterno"));
 				// Titulo Profesional
-				perfil.setTituloProfesional(rs.getString("Titulo"));
+				perfil.setTituloProfesional(rs.getString("Titulo")==null?"":rs.getString("Titulo"));
+				perfil.setResumenProfesional(rs.getString("resumen_per")==null?"":rs.getString("resumen_per"));
 				sol.setCorreo(rs.getString("Email"));
 				sol.setNumeroDocumento(rs.getString("NumeroDocumento"));
 				sol.setFechaNacimiento(rs.getDate("FechaNacimiento"));
@@ -93,8 +94,8 @@ public class ConsultaPostulanteDao extends BaseDAO{
 				sol.setTelefono(rs.getString("telefono_per"));
 				sol.setCelular(rs.getString("celular_per"));
 				sol.setDireccion(rs.getString("Direccion"));
-				perfil.setPretencionEconomica(rs.getBigDecimal("Salario"));
-				perfil.setDisponibilidadHoraria(rs.getString("Disponibilidad"));
+				perfil.setPretencionEconomica(rs.getBigDecimal("Salario")==null?new BigDecimal(0):rs.getBigDecimal("Salario"));
+				perfil.setDisponibilidadHoraria(rs.getString("Disponibilidad")==null?"":rs.getString("Disponibilidad"));
 				// Llenando los datos del perfil Profesional		
 				sol.setPerfilProfesional(perfil);
 			}
@@ -128,7 +129,7 @@ public class ConsultaPostulanteDao extends BaseDAO{
 				industria.setNombreIndustria(rs.getString("DescripcionIndustria"));
 				experiencia.setNombreOrganizacion(rs.getString("Empresa"));
 				experiencia.setFechaInicio(rs.getDate("FechaInicio"));
-				experiencia.setFechatermino(rs.getDate("FechaFin"));		
+				experiencia.setFechatermino(rs.getDate("FechaFin"));
 				experiencia.setIndustria(industria);
 				lstExperienciaProfesional.add(experiencia);
 			}

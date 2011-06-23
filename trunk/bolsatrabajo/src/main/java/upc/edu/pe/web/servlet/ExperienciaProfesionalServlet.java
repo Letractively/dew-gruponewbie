@@ -10,22 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import upc.edu.pe.dao.consulta.ConsultaEmpresaDao;
+import upc.edu.pe.dao.consulta.ConsultaPostulanteDao;
 import upc.edu.pe.exception.DAOExcepcion;
-import upc.edu.pe.model.Ofertante;
+import upc.edu.pe.model.ExperienciaProfesional;
+import upc.edu.pe.model.Solicitante;
 import upc.edu.pe.web.comun.Constantes;
 
 /**
- * Servlet implementation class BuscarIndustriaServlet
+ * Servlet implementation class ExperienciaProfesionalServlet
  */
-@WebServlet("/BuscarIndustriaServlet")
-public class BuscarIndustriaServlet extends HttpServlet {
+@WebServlet("/ExperienciaProfesionalServlet")
+public class ExperienciaProfesionalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuscarIndustriaServlet() {
+    public ExperienciaProfesionalServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,18 +48,19 @@ public class BuscarIndustriaServlet extends HttpServlet {
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		int idIndustria = Integer.parseInt(request.getParameter("industria"));
-		ConsultaEmpresaDao consultaEmpresaDao = new ConsultaEmpresaDao();
+		Solicitante solic = (Solicitante)request.getSession().getAttribute(Constantes.SESSION_USUARIO);
+		ConsultaPostulanteDao consultaDao = new ConsultaPostulanteDao();
+		
 		try {
-			List<Ofertante> lstOferta = consultaEmpresaDao.buscarPorIndustria(idIndustria);
-
-			request.setAttribute(Constantes.SESSION_LISTA_OFERTANTE, lstOferta);
-			RequestDispatcher rd = request.getRequestDispatcher("/pages/empresaPorIndustria.jsp");
+			List<ExperienciaProfesional> listExper = consultaDao.obtenerExperienciaProfesional(solic);
+			request.setAttribute(Constantes.SESSION_LISTA_EXPERIENCIA_PROF, listExper);
+			RequestDispatcher rd = request.getRequestDispatcher("/pages/postulanteExperProfesional.jsp");
 			rd.forward(request, response);
 		} catch (DAOExcepcion e) {
 			System.err.println("Error");
 			RequestDispatcher rd = request.getRequestDispatcher("/pages/comun/error.jsp");
 			rd.forward(request, response);
-		} 
+		}
 	}
+	
 }

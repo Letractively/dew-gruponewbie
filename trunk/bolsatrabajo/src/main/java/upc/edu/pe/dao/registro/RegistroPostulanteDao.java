@@ -15,7 +15,7 @@ public class RegistroPostulanteDao extends BaseDAO {
 
 	public int registrarSolicitante(Solicitante solicitante) throws DAOExcepcion {
 		int idPersona = 0;
-		String query = "insert into tb_persona (email_per,password_per,nombreRazonSocial_per,apellidoPaterno_per,apellidoMaterno_per,direccion_per,numeroDocumento_per,sexo_per,fechaNacimiento_per,telefono_per,celular_per,id_tipper,id_tipdoc) values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+		String query = "insert into tb_persona (email_per,password_per,nombreRazonSocial_per,apellidoPaterno_per,apellidoMaterno_per,direccion_per,numeroDocumento_per,sexo_per,fechaNacimiento_per,telefono_per,celular_per,id_tipper,id_tipusu,id_dis,id_tipdoc) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -33,7 +33,9 @@ public class RegistroPostulanteDao extends BaseDAO {
 			stmt.setString(10, solicitante.getTelefono());
 			stmt.setString(11, solicitante.getCelular());
 			stmt.setString(12, solicitante.getTipoPersona());
-			stmt.setString(13, solicitante.getTipoDocumento());
+			stmt.setInt(13, solicitante.getTipoUsuario().getIdTipoUsuario());
+			stmt.setString(14, solicitante.getDistrito().getId_distrito());
+			stmt.setString(15, solicitante.getTipoDocumento());
 
 			int i = stmt.executeUpdate();
 			if (i != 1) {

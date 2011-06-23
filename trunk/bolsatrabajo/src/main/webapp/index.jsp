@@ -32,7 +32,7 @@
     <td colspan="2" class="texto_gris">Si no se encuentra registrado:</td>
   </tr>
     <tr>
-    <td colspan="2" align="center" class="texto_gris"><a href="pages/datosEmpresa.jsp">Reg&iacute;strese como empresa</a><br/></td>
+    <td colspan="2" align="center" class="texto_gris"><a href="pages/registroEmpresa.jsp">Reg&iacute;strese como empresa</a><br/></td>
   </tr>
       <tr>
     <td colspan="2" align="center" class="texto_gris"><a href="<%=request.getContextPath()%>/PostulanteServlet">Reg&iacute;strese como solicitante</a></td>

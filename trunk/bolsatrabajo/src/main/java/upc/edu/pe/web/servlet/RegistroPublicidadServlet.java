@@ -56,8 +56,24 @@ public class RegistroPublicidadServlet extends HttpServlet {
 		if (operacion.equals("") || operacion.equals(Constantes.C_OPERACION_MODIFICAR)){
 			publicidad.setDescripcion(request.getParameter("descripcion"));
 			publicidad.setEnlace(request.getParameter("enlace"));
-			publicidad.setFechainicial(HelperDate.parseaDate(request.getParameter("finicial"),Constantes.FORMATO_FECHA_VIEW));
-			publicidad.setFechafin(HelperDate.parseaDate(request.getParameter("ffinal"),Constantes.FORMATO_FECHA_VIEW));
+			try{
+				publicidad.setFechainicial(HelperDate.parseaDate(request.getParameter("finicial"),Constantes.FORMATO_FECHA_VIEW));
+			} catch (Exception e) {		
+				request.setAttribute(Constantes.C_MENSAJE_ERROR, "Formato de fecha inicial erroneo debe ser dd/mm/yyyy");
+				RequestDispatcher rd = request.getRequestDispatcher("/pages/listadoPublicidad.jsp");
+				rd.forward(request, response);
+				return;
+			}
+			
+			try{
+				publicidad.setFechafin(HelperDate.parseaDate(request.getParameter("ffinal"),Constantes.FORMATO_FECHA_VIEW));
+			} catch (Exception e) {		
+				request.setAttribute(Constantes.C_MENSAJE_ERROR, "Formato de fecha final erroneo debe ser dd/mm/yyyy");
+				RequestDispatcher rd = request.getRequestDispatcher("/pages/listadoPublicidad.jsp");
+				rd.forward(request, response);
+				return;
+			}
+			
 			publicidad.setCuerpo(request.getParameter("cuerpo"));
 			publicidad.setEstado(Constantes.C_PUBLICIDAD_PUBLICADO);
 		}else{
