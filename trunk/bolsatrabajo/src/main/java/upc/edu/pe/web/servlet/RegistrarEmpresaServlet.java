@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import upc.edu.pe.dao.registro.RegistroOfertanteDao;
 import upc.edu.pe.exception.DAOExcepcion;
 import upc.edu.pe.model.Ofertante;
+import upc.edu.pe.model.TipoUsuario;
+import upc.edu.pe.web.comun.Constantes;
 
 /**
  * Servlet implementation class RegistrarEmpresaServlet
@@ -40,13 +42,13 @@ public class RegistrarEmpresaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nSocial = request.getParameter("razonSocial");
-		String email = request.getParameter("email");
-		String clave = request.getParameter("clave");		
-		String tipDoc = request.getParameter("id_tipdoc");
-		String nRuc = request.getParameter("ruc");		
-		String Fijo = request.getParameter("teleFijo");		
-		String tipPer = request.getParameter("id_tipper");		
+		String nSocial = request.getParameter("txtRazonSocial");
+		String email = request.getParameter("txtEmail");
+		String clave = request.getParameter("txtPassword");		
+		String tipDoc = request.getParameter("idTipoDoc");
+		String nRuc = request.getParameter("txtRuc");		
+		String Fijo = request.getParameter("txtTelefonoFijo");		
+		String tipPer = request.getParameter("tipoPer");		
 				
 		Ofertante r = new Ofertante();
 		r.setRazonSocial(nSocial);		
@@ -56,11 +58,16 @@ public class RegistrarEmpresaServlet extends HttpServlet {
 		r.setNumeroDocumento(nRuc);		
 		r.setTelefono(Fijo);		
 		r.setTipoPersona(tipPer);
+		TipoUsuario tipousuario = new TipoUsuario();
+		tipousuario.setIdTipoUsuario(1);
+		r.setTipoUsuario(tipousuario);
 			
 		RegistroOfertanteDao dao = new RegistroOfertanteDao();
 		try {
-			dao.registrarOfertante(r);
-			response.sendRedirect(request.getContextPath()+ "/RolBuscarServlet");
+			r.setId(dao.registrarOfertante(r));
+			//response.sendRedirect(request.getContextPath()+ "/RolBuscarServlet");
+			System.out.println("Se registró el Solicitante correctamente:-->"+r.toString());
+			response.sendRedirect(request.getContextPath()+"/LoginServlet?usuario="+r.getCorreo()+"&clave="+r.getContrasenhia());
 		} catch (DAOExcepcion e) {
 			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
 			rd.forward(request, response);

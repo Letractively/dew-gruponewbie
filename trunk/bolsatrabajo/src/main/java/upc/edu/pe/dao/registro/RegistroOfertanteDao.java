@@ -14,7 +14,7 @@ public class RegistroOfertanteDao extends BaseDAO {
 
 	public int registrarOfertante(Ofertante ofertante) throws DAOExcepcion {
 		int idPersona = 0;
-		String query = "insert into tb_persona (nombreRazonSocial_per, email_per, password_per, id_tipdoc, numeroDocumento_per, telefono_per, id_tipper) values (?, ?, ?, ?, ?, ?, ?)";
+		String query = "insert into tb_persona (nombreRazonSocial_per, email_per, password_per, id_tipdoc, numeroDocumento_per, telefono_per, id_tipper, id_tipusu) values (?, ?, ?, ?, ?, ?, ?, ?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -27,7 +27,8 @@ public class RegistroOfertanteDao extends BaseDAO {
 			stmt.setString(5, ofertante.getNumeroDocumento());
 			stmt.setString(6, ofertante.getTelefono());
 			stmt.setString(7, ofertante.getTipoPersona());
-
+			stmt.setInt(8, ofertante.getTipoUsuario().getIdTipoUsuario());
+			
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");

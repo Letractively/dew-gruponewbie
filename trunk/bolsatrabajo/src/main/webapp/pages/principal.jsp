@@ -26,6 +26,9 @@
 <br/><br/>
 	<table align="center" width="500" >
 		<tr>
+			<td class="texto_gris13"><a href="<%=request.getContextPath()%>/CargaRegistrarOportunidadServlet">Registrar Oportunidad</a></td>
+		</tr>
+		<tr>
 			<td class="texto_gris13"><a href="<%=request.getContextPath()%>/CargaBuscarPostulanteCriterioServlet">Buscar Postulantes por Criterio</a></td>
 		</tr>
 		<tr>
@@ -45,6 +48,9 @@
 %>
 <br/><br/>
 	<table align="center" width="500">
+		<tr>
+			<td class="texto_gris13" align="center"><a href="<%=request.getContextPath()%>/CargaBuscarOportunidadServlet">Buscar Oportunidad</a></td>
+		</tr>
 		<tr>
 			<td class="texto_gris13" align="center"><a href="<%=request.getContextPath()%>/BuscarEmpresaServlet">Buscar Empresa por Rubro</a></td>
 		</tr>

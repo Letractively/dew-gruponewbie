@@ -116,7 +116,7 @@ String id_tipdoc="2";
   <tr>
     <td>&nbsp;</td>
     <td colspan="4">
-    	<input type="submit" name="btnRegistrar" value="Registrar" onclick="javascript:return F_Validar();"/>
+    	<input type="submit" name="btnRegistrar" value="Registrar" />
       	<input type="reset" name="btnCancelar" value="Cancelar" onclick="F_Limpiar();"/>      	</td>
     <!-- <td>&nbsp;</td> 
     <td>&nbsp;</td>
@@ -140,9 +140,9 @@ String id_tipdoc="2";
   </tr>
 </table>
 </div>
-<input type="hidden" name="idpersona" value="<%=id_tipper%>">
+<input type="hidden" name="tipoPer" value="<%=id_tipper%>">
 <input type="hidden" name="idTipousu" value="<%=id_tipusu%>">
-<input type="hidden" name="idTipousu" value="<%=id_tipdoc%>">
+<input type="hidden" name="idTipoDoc" value="<%=id_tipdoc%>">
 </form>
 </body>
 </html>

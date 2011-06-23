@@ -62,16 +62,15 @@ public class RegistrarOportunidadServlet extends HttpServlet {
 		aviso.setSueldo(new BigDecimal(request.getParameter("sueldo")));
 		aviso.setEstado("1");
 		aviso.setContadorVisitas(0);
-		Especialidad esp = new Especialidad();
-		//Falta ID
-		esp.setNombreEspecialidad(request.getParameter("especialidad"));
-		aviso.setEspecialidad(esp);
-		aviso.setTotalPostulantes(0);
+		Especialidad especialidad =new Especialidad();
+		especialidad.setIdEspecialidad(Integer.valueOf(request.getParameter("especialidad")).intValue());
+		aviso.setEspecialidad(especialidad);
+		
 		
 		RegistroAvisoDao registroAvisoDao = new RegistroAvisoDao();
 		try{
 			if (registroAvisoDao.registrarAviso(aviso, 1)){
-				RequestDispatcher rd = request.getRequestDispatcher("/pages/comun/error.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/pages/registrarOportunidad.jsp");
 				rd.forward(request, response);
 			}else{
 				RequestDispatcher rd = request.getRequestDispatcher("/pages/comun/error.jsp");
@@ -82,5 +81,5 @@ public class RegistrarOportunidadServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/pages/comun/error.jsp");
 			rd.forward(request, response);
 		}		
-	}
+	}		
 }

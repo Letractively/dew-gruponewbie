@@ -19,14 +19,14 @@ import upc.edu.pe.web.comun.Constantes;
 /**
  * Servlet implementation class BuscarIndustriaServlet
  */
-@WebServlet("/BuscarOportunidadServlet")
-public class BuscarOportunidadServlet extends HttpServlet {
+@WebServlet("/CargaRegistrarOportunidadServlet")
+public class CargarRegistrarOportunidadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuscarOportunidadServlet() {
+    public CargarRegistrarOportunidadServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,21 +48,8 @@ public class BuscarOportunidadServlet extends HttpServlet {
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		ConsultaAvisoDao consultaAvisoDao = new ConsultaAvisoDao();
-		try {
-			Especialidad especialidad = new Especialidad();
-			int codigo = Integer.valueOf(request.getParameter("oportunidad")).intValue();
-			especialidad.setIdEspecialidad(codigo);
-			
-			List<Aviso> lstAviso = consultaAvisoDao.listarAvisosPorEspecialidad(especialidad);
-			request.setAttribute(Constantes.SESSION_LISTA_AVISO, lstAviso);
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/pages/buscarOportunidad.jsp");
-			rd.forward(request, response);
-		} catch (DAOExcepcion e) {
-			System.err.println("Error");
-			RequestDispatcher rd = request.getRequestDispatcher("/pages/comun/error.jsp");
-			rd.forward(request, response);
-		} 
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/registrarOportunidad.jsp");
+		rd.forward(request, response);
+
 	}
 }
